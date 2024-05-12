@@ -59,7 +59,13 @@ const Page: FC<PageProps> = async ({ params }: PageProps) => {
         </div>
       </div>
 
-      <Messages sessionImg={session.user.image} chatPartner={chatPartner} sessionId={session.user.id} initialMessages={initialMessages} />
+      <Messages
+        chatId={chatId}
+        sessionImg={session.user.image}
+        chatPartner={chatPartner}
+        sessionId={session.user.id}
+        initialMessages={initialMessages}
+      />
       <ChatInput chatId={chatId} chatPartner={chatPartner} />
     </div>
   );

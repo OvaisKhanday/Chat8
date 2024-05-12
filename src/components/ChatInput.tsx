@@ -4,6 +4,9 @@ import { FC, useRef, useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import Button from "./ui/Button";
 import toast from "react-hot-toast";
+import { pusherServer } from "@/lib/pusher";
+import { toPusherKey } from "@/lib/utils";
+import { nanoid } from "nanoid";
 
 interface ChatInputProps {
   chatPartner: User;
