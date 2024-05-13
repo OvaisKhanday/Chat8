@@ -18,14 +18,15 @@ interface ExtendedMessage extends Message {
 
 const SidebarChatList: FC<SidebarChatListProps> = ({ friends, sessionId }) => {
   const [unseenMessages, setUnseenMessages] = useState<Message[]>([]);
+  const [activeChats, setActiveChats] = useState<User[]>(friends ?? []);
   const router = useRouter();
   const pathname = usePathname(); // relative pathname
 
   useEffect(() => {
     const chatChannel = pusherClient.subscribe(toPusherKey(`user:${sessionId}:chats`));
     const friendRequestsChannel = pusherClient.subscribe(toPusherKey(`user:${sessionId}:friends`));
-    const newFriendHandler = () => {
-      router.refresh();
+    const newFriendHandler = (newFriend: User) => {
+      setActiveChats((prev) => [...prev, newFriend]);
     };
     const chatHandler = (messageData: ExtendedMessage) => {
       const shouldNotify = pathname !== `/dashboard/chat/${chatHrefConstructor(sessionId, messageData.senderId)}`;
@@ -61,7 +62,7 @@ const SidebarChatList: FC<SidebarChatListProps> = ({ friends, sessionId }) => {
   if (!friends) return <p>No friend</p>;
   return (
     <ul role='list' className='max-h-[25rem] overflow-y-auto -mx-2 space-y-1'>
-      {friends.sort().map((friend) => {
+      {activeChats.sort().map((friend) => {
         console.log("friend", friend);
         const unseenMessageCount = unseenMessages?.filter((unseenMsg) => unseenMsg.senderId === friend.id).length;
         return (

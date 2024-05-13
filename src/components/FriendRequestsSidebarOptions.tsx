@@ -17,10 +17,16 @@ const FriendRequestsSidebarOptions: FC<FriendRequestsSidebarOptionsProps> = ({ s
       console.log("Inside total requests");
       setUnseenRequestCount((prev) => prev + 1);
     };
+    const addedFriendHandler = () => {
+      setUnseenRequestCount((prev) => prev - 1);
+    };
     const channel = pusherClient.subscribe(toPusherKey(`user:${sessionId}:incoming_friend_requests`));
+    const newFriendChannel = pusherClient.subscribe(toPusherKey(`user:${sessionId}:friends`));
     channel.bind("incoming_friend_requests", friendRequestHandler);
+    newFriendChannel.bind("new_friend", addedFriendHandler);
     return () => {
       channel.unbind("incoming_friend_requests", friendRequestHandler);
+      newFriendChannel.unbind("new_friend", addedFriendHandler);
       // pusherClient.unsubscribe(toPusherKey(`user:${sessionId}:incoming_friend_requests`));
     };
   }, [sessionId]);

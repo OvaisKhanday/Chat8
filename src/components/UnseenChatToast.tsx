@@ -29,7 +29,7 @@ const UnseenChatToast: FC<UnseenChatToastProps> = ({ t, senderId, sessionId, sen
           </div>
           <div className='ml-3 flex-1'>
             <p className='text-sm font-medium text-gray-900'>{senderName}</p>
-            <p className='text-sm mt-1 text-gray-500'>{senderMessage}</p>
+            <p className='truncate text-sm mt-1 text-gray-500'>{senderMessage}</p>
           </div>
         </div>
       </a>
