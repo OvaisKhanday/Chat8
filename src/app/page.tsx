@@ -10,7 +10,7 @@ export default function Home() {
       <div className='max-w-md h-screen flex m-auto justify-center items-center'>
         <div className='flex flex-col text-center justify-center items-center '>
           <div className='flex gap-4'>
-            <h1 className='bg-gradient-to-b from-gray-800 to-gray-700 bg-clip-text text-transparent font-extrabold text-6xl'>Chat 8</h1>
+            <h1 className='bg-gradient-to-b from-gray-800 to-gray-700 bg-clip-text text-transparent font-extrabold text-6xl'>Chat8</h1>
             <Icons.Logo className='h-16 w-16 mb-4' />
           </div>
           <h2 className='text-slate-800 mt-4 sm:mt-8 font-bold text-xl'>Connect, Chat, Conquer: Your Real-Time Companion</h2>
