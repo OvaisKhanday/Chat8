@@ -20,7 +20,7 @@ export async function POST(req: Request) {
 
     // const data = (await RESTResponse.json()) as { result: string };
     // console.log("res from redis", data);
-    const idToAdd = (await fetchRedis("get", `user:email:${emailToAdd}`)) as string;
+    const idToAdd = (await fetchRedis("get", `user:email:${emailToAdd.toLowerCase()}`)) as string;
     const session = await getServerSession(authOptions);
     console.log("session", session);
     if (!session) {
