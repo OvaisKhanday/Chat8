@@ -23,7 +23,7 @@ const FriendRequestsSidebarOptions: FC<FriendRequestsSidebarOptionsProps> = ({ s
       channel.unbind("incoming_friend_requests", friendRequestHandler);
       // pusherClient.unsubscribe(toPusherKey(`user:${sessionId}:incoming_friend_requests`));
     };
-  }, []);
+  }, [sessionId]);
   return (
     <Link
       href='/dashboard/requests'

@@ -29,7 +29,7 @@ const Messages: FC<MessagesProps> = ({ sessionId, initialMessages, sessionImg, c
     return () => {
       channel.unbind("incoming-message", handleNewMessage);
     };
-  }, []);
+  }, [chatId]);
 
   return (
     <div
