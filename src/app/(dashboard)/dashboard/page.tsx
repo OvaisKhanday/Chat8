@@ -36,7 +36,7 @@ const Page: FC<pageProps> = async ({}) => {
       ) : (
         friendsWithLastMessage.map((friend) => (
           <div key={friend.id} className='relative bg-zinc-50 borer-zinc-200 p-3 rounded-md'>
-            <div className='absolute right-4 inset-y-0 flex items-center'>
+            <div className='absolute right-4 flex items-center'>
               <ChevronRight className='h-7 w-7 text-zinc-400' />
             </div>
             <Link href={`/dashboard/chat/${chatHrefConstructor(session.user.id, friend.id)}`} className='relative sm:flex'>
