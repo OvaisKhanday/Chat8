@@ -1,5 +1,7 @@
 # Chat8 - A full-stack realtime messaging chat application
 
+### Live at: <https://chat8-opal.vercel.app/>
+
 ## Features
 
 - Realtime messaging
